@@ -8,6 +8,7 @@ public class Main {
         } else {
             System.out.println("Today is " + day + ". Work at office!");
         }
+        System.out.println(day.getClass().getTypeName());
     }
 }
 
