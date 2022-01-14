@@ -1,6 +1,7 @@
 package fanxing;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -15,6 +16,24 @@ public class Main {
 // 无强制转型:
         String first = list.get(0);
         String second = list.get(1);
+        Pair<Integer> p = new Pair<>(123, 456);
+// Compile error:
+        if (p instanceof Pair) {
+        }
+
+        Pair[] ps = (Pair<String>[]) new Pair[2];
+        ps[0] = new Pair<String>("a", "b");
+        ps[1] = new Pair<String>("x", "y");
+        Pair<String> p3 = ps[1];
+        System.out.println(p3.getFirst()+" "+p3.getLast());
+        Integer[] array = { 1, 2, 3 };
+        List<Integer> list1 = Arrays.asList(array);
+    }
+}
+
+class Par<T> {
+    public boolean equals(Object t) {
+        return this == t;
     }
 }
 class Pair<T> {
