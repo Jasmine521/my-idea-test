@@ -13,6 +13,24 @@ public class Main {
         }
         // 洗牌算法shuffle可以随机交换List中的元素位置:
         Collections.shuffle(list);
+
+        while(true){
+            Collections.shuffle(list);
+            int k=start;
+            int flag=0;
+            for(int i=0;i<list.size();i++)
+            {
+                if(list.get(i)==k++){
+
+                }
+                else {
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag==0) break;
+        }
+        System.out.println(list.toString());
         // 随机删除List中的一个元素:
         int removed = list.remove((int) (Math.random() * list.size()));
         int found = findMissingNumber(start, end, list);
