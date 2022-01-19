@@ -3,12 +3,12 @@ package com.bibi;
 public class Main {
     public static void main(String[] args) {
         Integer n = null;
-        int x = 10;
+        int x = 3;
         System.out.println(fact(x));
     }
     public static int fact(int n){
         if(n<0){
-            return -1;
+            throw new IllegalArgumentException();
         }
         if(n==0) return 0;
         int ans=1;

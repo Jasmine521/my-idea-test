@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="8">
+      <module name="abstract" target="" />
+      <module name="BMIcomputed" target="" />
+      <module name="interface" target="" />
+      <module name="my-test" target="" />
+      <module name="my-test-2" target="" />
+      <module name="object-orient" target="" />
+      <module name="opp-package" target="" />
+      <module name="static" target="" />
+      <module name="日期与时间" target="" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

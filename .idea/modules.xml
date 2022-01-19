@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/opp-package/opp-package.iml" filepath="$PROJECT_DIR$/opp-package/opp-package.iml" />
       <module fileurl="file://$PROJECT_DIR$/static/static.iml" filepath="$PROJECT_DIR$/static/static.iml" />
       <module fileurl="file://$PROJECT_DIR$/日期与时间/日期与时间.iml" filepath="$PROJECT_DIR$/日期与时间/日期与时间.iml" />
+      <module fileurl="file://$PROJECT_DIR$/正则表达式/正则表达式.iml" filepath="$PROJECT_DIR$/正则表达式/正则表达式.iml" />
     </modules>
   </component>
 </project>
