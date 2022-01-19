@@ -1,13 +1,59 @@
 package reGeX;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String [] args){
-        fun3();
+        fun8();
     }
 
+    /**
+     * appendReplacement是java中替换相应字符串的一个方法
+     * appendReplacement(StringBuffer sb,String replacement)
+     *  将当前匹配子串替换为指定字符串，并且将替换后的子串以及其之前到上次匹配子串之后的字符串段添加到一个 StringBuffer 对象里
+     * appendTail(StringBuffer sb)
+     * 将最后一次匹配工作后剩余的字符串添加到一个 StringBuffer 对象里
+     */
+    public static void fun8(){
+        Map<String,String> map= new HashMap<>();
+        map.put("name","Bob");
+        map.put("lang","Java");
+        Pattern p = Pattern.compile("\\$\\{([\\w]+)\\}");
+        Matcher m = p.matcher("Hello, ${name}! You are learning ${lang}!");
+        StringBuffer sb = new StringBuffer();
+        while (m.find()){
+            System.out.println(m.group(1));
+            m.appendReplacement(sb,map.get(m.group(1)));
+        }
+        m.appendTail(sb);
+        System.out.println(sb.toString());
+
+    }
+    public static void fun7(){
+        String s = "The     quick\t\t brown   fox  jumps   over the  lazy dog.";
+        String r = s.replaceAll("\\s+", " ");
+        System.out.println(r); // "The quick brown fox jumps over the lazy dog."
+    }
+    public static void fun6(){
+        String s = "the quick brown fox jumps over the lazy dog.";
+        Pattern p = Pattern.compile("\\wo\\w");
+        Matcher m = p.matcher(s);
+        while (m.find()) {
+            String sub = s.substring(m.start(), m.end());
+            System.out.println(sub);
+        }
+    }
+    public static void fun5(){
+        System.out.println(Arrays.toString("a b c".split("\\s")));
+        System.out.println(Arrays.toString("a b  c".split("\\s")));
+        System.out.println(Arrays.toString("a b , ; c".split("[\\,\\;\\s]+")));
+    }
     /**
      * ?表示匹配一个或0个
      * 追加的? 表示非贪婪匹配  即在满足匹配条件的结果之中 寻找被?所修饰的匹配单元最短的结果
