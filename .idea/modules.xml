@@ -10,6 +10,8 @@
       <module fileurl="file://$PROJECT_DIR$/object-orient/object-orient.iml" filepath="$PROJECT_DIR$/object-orient/object-orient.iml" />
       <module fileurl="file://$PROJECT_DIR$/opp-package/opp-package.iml" filepath="$PROJECT_DIR$/opp-package/opp-package.iml" />
       <module fileurl="file://$PROJECT_DIR$/static/static.iml" filepath="$PROJECT_DIR$/static/static.iml" />
+      <module fileurl="file://$PROJECT_DIR$/加密与安全/加密与安全.iml" filepath="$PROJECT_DIR$/加密与安全/加密与安全.iml" />
+      <module fileurl="file://$PROJECT_DIR$/多线程/多线程.iml" filepath="$PROJECT_DIR$/多线程/多线程.iml" />
       <module fileurl="file://$PROJECT_DIR$/日期与时间/日期与时间.iml" filepath="$PROJECT_DIR$/日期与时间/日期与时间.iml" />
       <module fileurl="file://$PROJECT_DIR$/正则表达式/正则表达式.iml" filepath="$PROJECT_DIR$/正则表达式/正则表达式.iml" />
     </modules>
