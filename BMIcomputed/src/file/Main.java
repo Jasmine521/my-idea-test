@@ -9,12 +9,12 @@ public class Main {
         File file = new File("C:\\Users\\smec\\Desktop\\word.txt");
         System.out.println(File.separator);
         System.out.println(file);
-        System.out.println(file.isFile()+" "+file.isDirectory());
-        System.out.println("文件大小："+file.length());
+        System.out.println(file.isFile() + " " + file.isDirectory());
+        System.out.println("文件大小：" + file.length());
         File f = new File("C:\\Users\\smec\\Desktop\\werd.txt");
-        if(f.createNewFile()){
+        if (f.createNewFile()) {
             System.out.println("文件创建成功");
-            if(f.delete()){
+            if (f.delete()) {
                 System.out.println("文件删除成功");
             }
         }
@@ -31,6 +31,7 @@ public class Main {
         });
         printFiles(fs2);
     }
+
     static void printFiles(File[] files) {
         System.out.println("==========");
         if (files != null) {

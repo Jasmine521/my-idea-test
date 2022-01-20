@@ -17,7 +17,7 @@ public class Main {
         Instant now = Instant.now();
         System.out.println(now.getEpochSecond()); // 秒
         System.out.println(now.toEpochMilli()); // 毫秒
-        long ti =  now.getEpochSecond();                                //instant  ->>    long
+        long ti = now.getEpochSecond();                                //instant  ->>    long
         System.out.println(ti);
         Instant now1 = Instant.ofEpochSecond((long) 1112225481);        ///long  -》  instant
         System.out.println(now1);
@@ -25,7 +25,7 @@ public class Main {
         ZoneId.of("Asia/Shanghai");                                     // String ->ZoneId
         ZonedDateTime zdt = now1.atZone(ZoneId.systemDefault());        //instant ->>   ZonedDateTime
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("E y-M-d H:m:s", Locale.CHINESE);
-        System.out.println("zdt"+fmt.format(zdt));
+        System.out.println("zdt" + fmt.format(zdt));
         ZonedDateTime zonedDateTime = ZonedDateTime.now();
         Instant instant = zonedDateTime.toInstant();                    //ZonedDateTime ->> instant
         System.out.println(now.toEpochMilli());
@@ -52,6 +52,7 @@ public class Main {
         calendar1.setTimeZone(TimeZone.getTimeZone(zdt.getZone().getId()));
         calendar1.setTimeInMillis(zdt.toEpochSecond() * 1000);
     }
+
     static String timestampToString(long epochMilli, Locale lo, String zoneId) {
         Instant ins = Instant.ofEpochMilli(epochMilli);
         DateTimeFormatter f = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM, FormatStyle.SHORT);

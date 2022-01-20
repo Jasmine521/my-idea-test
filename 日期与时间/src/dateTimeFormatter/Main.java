@@ -1,10 +1,11 @@
 package dateTimeFormatter;
-import  java.time.*;
+
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm", Locale.CHINA);
         DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("E M-d-yyyy HH:mm:ss", Locale.CHINA);
         ZonedDateTime zonedDateTime = ZonedDateTime.now();

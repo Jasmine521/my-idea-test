@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ArrayList<String> strList = new ArrayList<String>();
         strList.add("hello"); // OK
         String s = strList.get(0); // OK
@@ -25,8 +25,8 @@ public class Main {
         ps[0] = new Pair<String>("a", "b");
         ps[1] = new Pair<String>("x", "y");
         Pair<String> p3 = ps[1];
-        System.out.println(p3.getFirst()+" "+p3.getLast());
-        Integer[] array = { 1, 2, 3 };
+        System.out.println(p3.getFirst() + " " + p3.getLast());
+        Integer[] array = {1, 2, 3};
         List<Integer> list1 = Arrays.asList(array);
     }
 }
@@ -36,9 +36,11 @@ class Par<T> {
         return this == t;
     }
 }
+
 class Pair<T> {
     private T first;
     private T last;
+
     public Pair(T first, T last) {
         this.first = first;
         this.last = last;

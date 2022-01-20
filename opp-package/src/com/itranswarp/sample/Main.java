@@ -1,11 +1,12 @@
 package com.itranswarp.sample;
+
 import com.itranswarp.world.Person;
 
 import javax.print.attribute.standard.MediaSize;
 
 public class Main {
-    public static void main(String[] args){
-        Person p =new Person();
+    public static void main(String[] args) {
+        Person p = new Person();
         p.hello();
 
         Outer outer = new Outer("Nested");
@@ -20,33 +21,40 @@ public class Main {
             }
         };
         cxx.run();
-        Outer.Inx inx = new  Outer.Inx();
+        Outer.Inx inx = new Outer.Inx();
         inx.hello();
     }
 }
-class Outer{
+
+class Outer {
     private String name;
     private static String NAME = "OuTeR";
-    Outer(String name){
-        this.name=name;
+
+    Outer(String name) {
+        this.name = name;
     }
 
-    private  String he(){
+    private String he() {
         return name;
     }
 
-    class Inner{
-        public void hello(){
-            System.out.println("Inner:hello"+ he());
+    class Inner {
+        public void hello() {
+            System.out.println("Inner:hello" + he());
         }
 
     }
-    static class  Inx{
-        void hello(){
-            System.out.println("Inx:hello  "+Outer.NAME);
+
+    static class Inx {
+        void hello() {
+            System.out.println("Inx:hello  " + Outer.NAME);
         }
     }
 }
-abstract class xx{
-    void run(){};
+
+abstract class xx {
+    void run() {
+    }
+
+    ;
 }

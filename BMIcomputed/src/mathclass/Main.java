@@ -5,7 +5,7 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 
 public class Main {
-    public static <Booleann> void main(String[] args){
+    public static <Booleann> void main(String[] args) {
         Math.abs(-100); // 100
         Math.abs(-7.8); // 7.8
         Math.max(100, 99); // 100
@@ -33,9 +33,9 @@ public class Main {
         byte[] buffer = new byte[16];
         sr.nextBytes(buffer); // 用安全随机数填充buffer
         System.out.println(Arrays.toString(buffer));
-        int[] ints= new int[16];
-        for(int i:ints)
-        i=sr.nextInt();
+        int[] ints = new int[16];
+        for (int i : ints)
+            i = sr.nextInt();
         System.out.println(Arrays.toString(ints));
     }
 }

@@ -22,9 +22,10 @@ public class TestBufferedString {
         out.close();// 关闭流
         in.close();
     }
-    public static void reverse(byte[] bs){
-        for(byte n : bs){
-            n = (byte)(n+1) ;
+
+    public static void reverse(byte[] bs) {
+        for (byte n : bs) {
+            n = (byte) (n + 1);
         }
 
     }

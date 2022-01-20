@@ -28,6 +28,7 @@ public class Main {
             System.err.println("测试失败!");
         }
     }
+
     static LocalDateTime calculateArrivalAtNY(LocalDateTime bj, int h, int m) {
         ZonedDateTime bjZonedDateTime =
                 bj.plusHours(h).plusMinutes(m).atZone(ZoneId.systemDefault());
@@ -36,7 +37,8 @@ public class Main {
 
         return nyZonedDateTime.toLocalDateTime();
     }
-    public static void zoneTranslator(){
+
+    public static void zoneTranslator() {
         // 以中国时区获取当前时间:
         ZonedDateTime zbj = ZonedDateTime.now(ZoneId.of("Asia/Shanghai"));
         // 转换为纽约时间:

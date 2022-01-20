@@ -1,17 +1,17 @@
 package asclass;
 
 public class Main {
-    public static void main(String[] args){
-        int i=100;
+    public static void main(String[] args) {
+        int i = 100;
         Integer n1 = new Integer(i);
         Integer n2 = Integer.valueOf(i);
         Integer n3 = Integer.valueOf("111");
-        System.out.println(n3.intValue()+" n2:"+n2.intValue()+" n1:"+n1.intValue()+" "+Integer.valueOf(i));
-        System.out.println("n1 == n2:"+(n1==n2));
-        System.out.println("n1.euqals(n2):"+(n1.equals(n2)));
+        System.out.println(n3.intValue() + " n2:" + n2.intValue() + " n1:" + n1.intValue() + " " + Integer.valueOf(i));
+        System.out.println("n1 == n2:" + (n1 == n2));
+        System.out.println("n1.euqals(n2):" + (n1.equals(n2)));
         int x2 = Integer.parseInt("100", 16);
-        int x3 = Integer.valueOf("100",16);
-        System.out.println("x2,x3:"+x2+";"+x3);
+        int x3 = Integer.valueOf("100", 16);
+        System.out.println("x2,x3:" + x2 + ";" + x3);
         System.out.println(Integer.toString(100)); // "100",表示为10进制
         System.out.println(Integer.toString(100, 36)); // "2s",表示为36进制
         System.out.println(Integer.toHexString(100)); // "64",表示为16进制
@@ -41,7 +41,8 @@ public class Main {
         System.out.println(Byte.toUnsignedInt(y)); // 127
     }
 }
-class Person{
+
+class Person {
     private String name;
     private int age;
 

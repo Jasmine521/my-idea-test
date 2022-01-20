@@ -1,8 +1,9 @@
 package iterator;
-import  java.util.*;
+
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ReverseList<String> rlist = new ReverseList<>();
         rlist.add("Apple");
         rlist.add("Orange");
@@ -13,8 +14,9 @@ public class Main {
         List<String> list2 = Collections.emptyList();
     }
 }
+
 //实现iterable
-class ReverseList<T> implements Iterable<T>{
+class ReverseList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
@@ -23,21 +25,24 @@ class ReverseList<T> implements Iterable<T>{
 
     private List<T> list = new ArrayList<>();
 
-    public void add(T t){
+    public void add(T t) {
         list.add(t);
     }
 
-    class ReverseIterator implements Iterator<T>{
+    class ReverseIterator implements Iterator<T> {
         int index;
-        ReverseIterator(int index){
+
+        ReverseIterator(int index) {
             this.index = index;
         }
+
         @Override
-        public boolean hasNext(){
+        public boolean hasNext() {
             return index > 0;
         }
+
         @Override
-        public T next(){
+        public T next() {
             index--;
             return ReverseList.this.list.get(index);
         }

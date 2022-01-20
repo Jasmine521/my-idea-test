@@ -9,10 +9,11 @@ class MainTest {
 
     @org.junit.jupiter.api.Test
     void Testfact() {
-        assertEquals(1,fact(1));
-        assertEquals(6,fact(3));
+        assertEquals(1, fact(1));
+        assertEquals(6, fact(3));
 
     }
+
     @Test
     void testNegative() {
         assertThrows(IllegalArgumentException.class, () -> {

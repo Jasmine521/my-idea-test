@@ -14,21 +14,19 @@ public class Main {
         // 洗牌算法shuffle可以随机交换List中的元素位置:
         Collections.shuffle(list);
 
-        while(true){
+        while (true) {
             Collections.shuffle(list);
-            int k=start;
-            int flag=0;
-            for(int i=0;i<list.size();i++)
-            {
-                if(list.get(i)==k++){
+            int k = start;
+            int flag = 0;
+            for (int i = 0; i < list.size(); i++) {
+                if (list.get(i) == k++) {
 
-                }
-                else {
-                    flag=1;
+                } else {
+                    flag = 1;
                     break;
                 }
             }
-            if(flag==0) break;
+            if (flag == 0) break;
         }
         System.out.println(list.toString());
         // 随机删除List中的一个元素:
@@ -38,15 +36,16 @@ public class Main {
         System.out.println("missing number: " + found);
         System.out.println(removed == found ? "测试成功" : "测试失败");
     }
+
     static int findMissingNumber(int start, int end, List<Integer> list) {
         Integer i = Integer.valueOf(start);
 //        List<Integer> list1 = new ArrayList<>(Arrays.asList(new Integer[list.size()])) ;
         List<Integer> list1 = new ArrayList<>(list);
         //Collections.copy(list1,list);
         boolean f = true;
-        for(;i<Integer.valueOf(end);i++){
-           f = list1.remove(i);
-           if(!f) break;
+        for (; i < Integer.valueOf(end); i++) {
+            f = list1.remove(i);
+            if (!f) break;
         }
 
         return i.intValue();

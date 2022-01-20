@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        try (OutputStream out = new FileOutputStream("C:\\Users\\smec\\Desktop\\word.txt",true)){
+        try (OutputStream out = new FileOutputStream("C:\\Users\\smec\\Desktop\\word.txt", true)) {
             out.write("Hello,三零六！\n".getBytes(StandardCharsets.UTF_8));
             out.write("\n".getBytes());
         }

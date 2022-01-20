@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         long t = System.currentTimeMillis();
         Date date = new Date();
         System.out.println(date.toString());

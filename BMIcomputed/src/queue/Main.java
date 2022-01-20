@@ -3,10 +3,11 @@ package queue;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
+
 public class Main {
     public static void main(String[] args) {
         //使用comparator
-       // Queue<User> q = new PriorityQueue<>(new UserComparator());//使用comparator
+        // Queue<User> q = new PriorityQueue<>(new UserComparator());//使用comparator
         Queue<User> q = new PriorityQueue<>();
         // 添加3个元素到队列:
         q.offer(new User("Bob", "A10"));
@@ -34,7 +35,7 @@ class UserComparator implements Comparator<User> {
     }
 }
 
-class User implements Comparable<User>{
+class User implements Comparable<User> {
     public final String name;
     public final String number;
 
@@ -49,15 +50,13 @@ class User implements Comparable<User>{
 
     @Override
     public int compareTo(User o) {
-        if(this == o)
-        return 0;
-        else if(this.number.charAt(0)==o.number.charAt(0)){
-            return Integer.parseInt(this.number.substring(1))-Integer.parseInt(o.number.substring(1));
-        }
-        else if(this.number.charAt(0)=='V'){
+        if (this == o)
+            return 0;
+        else if (this.number.charAt(0) == o.number.charAt(0)) {
+            return Integer.parseInt(this.number.substring(1)) - Integer.parseInt(o.number.substring(1));
+        } else if (this.number.charAt(0) == 'V') {
             return -1;
-        }
-        else return 1;
+        } else return 1;
     }
 }
 

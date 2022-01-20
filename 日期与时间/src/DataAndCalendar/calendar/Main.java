@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Calendar c = Calendar.getInstance();
         int y = c.get(Calendar.YEAR);
         int m = 1 + c.get(Calendar.MONTH);
@@ -36,7 +36,7 @@ public class Main {
         System.out.println(tzGMT9.getID()); // GMT+09:00
         System.out.println(tzNY.getID()); // America/New_York
         List<String> tzs = new ArrayList(Arrays.asList(TimeZone.getAvailableIDs()));
-        for(Iterator<String> it = tzs.iterator();it.hasNext();){
+        for (Iterator<String> it = tzs.iterator(); it.hasNext(); ) {
             System.out.println(it.next());
         }
     }

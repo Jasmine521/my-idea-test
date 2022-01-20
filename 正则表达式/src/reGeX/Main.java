@@ -9,38 +9,40 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
-    public static void main(String [] args){
+    public static void main(String[] args) {
         fun8();
     }
 
     /**
      * appendReplacement是java中替换相应字符串的一个方法
      * appendReplacement(StringBuffer sb,String replacement)
-     *  将当前匹配子串替换为指定字符串，并且将替换后的子串以及其之前到上次匹配子串之后的字符串段添加到一个 StringBuffer 对象里
+     * 将当前匹配子串替换为指定字符串，并且将替换后的子串以及其之前到上次匹配子串之后的字符串段添加到一个 StringBuffer 对象里
      * appendTail(StringBuffer sb)
      * 将最后一次匹配工作后剩余的字符串添加到一个 StringBuffer 对象里
      */
-    public static void fun8(){
-        Map<String,String> map= new HashMap<>();
-        map.put("name","Bob");
-        map.put("lang","Java");
+    public static void fun8() {
+        Map<String, String> map = new HashMap<>();
+        map.put("name", "Bob");
+        map.put("lang", "Java");
         Pattern p = Pattern.compile("\\$\\{([\\w]+)\\}");
         Matcher m = p.matcher("Hello, ${name}! You are learning ${lang}!");
         StringBuffer sb = new StringBuffer();
-        while (m.find()){
+        while (m.find()) {
             System.out.println(m.group(1));
-            m.appendReplacement(sb,map.get(m.group(1)));
+            m.appendReplacement(sb, map.get(m.group(1)));
         }
         m.appendTail(sb);
         System.out.println(sb.toString());
 
     }
-    public static void fun7(){
+
+    public static void fun7() {
         String s = "The     quick\t\t brown   fox  jumps   over the  lazy dog.";
         String r = s.replaceAll("\\s+", " ");
         System.out.println(r); // "The quick brown fox jumps over the lazy dog."
     }
-    public static void fun6(){
+
+    public static void fun6() {
         String s = "the quick brown fox jumps over the lazy dog.";
         Pattern p = Pattern.compile("\\wo\\w");
         Matcher m = p.matcher(s);
@@ -49,16 +51,18 @@ public class Main {
             System.out.println(sub);
         }
     }
-    public static void fun5(){
+
+    public static void fun5() {
         System.out.println(Arrays.toString("a b c".split("\\s")));
         System.out.println(Arrays.toString("a b  c".split("\\s")));
         System.out.println(Arrays.toString("a b , ; c".split("[\\,\\;\\s]+")));
     }
+
     /**
      * ?表示匹配一个或0个
      * 追加的? 表示非贪婪匹配  即在满足匹配条件的结果之中 寻找被?所修饰的匹配单元最短的结果
      */
-    public static void fun4(){
+    public static void fun4() {
         Pattern pattern = Pattern.compile("(\\d+?)(0*)");
         Matcher matcher = pattern.matcher("1230000");
         if (matcher.matches()) {
@@ -67,17 +71,18 @@ public class Main {
         }
     }
 
-    public static void fun3(){
+    public static void fun3() {
         Pattern p = Pattern.compile("([01]?\\d|2[0-3])\\:([0-5]?\\d)\\:([0-5]?\\d)");
         Matcher m = p.matcher("23:9:56");
-        if(m.matches()){
+        if (m.matches()) {
             String g1 = m.group(1);
             String g2 = m.group(2);
             String g3 = m.group(3);
-            System.out.println("Hours:"+g1+"Minutes:"+g2+"Seconds:"+g3);
+            System.out.println("Hours:" + g1 + "Minutes:" + g2 + "Seconds:" + g3);
         }
     }
-    public static void fun1(){
+
+    public static void fun1() {
         Pattern p = Pattern.compile("(\\d{3,4})\\-(\\d{7,8})");
         Matcher m = p.matcher("010-12345678");
         if (m.matches()) {
@@ -90,7 +95,8 @@ public class Main {
         }
 
     }
-    public static void fun2(){
+
+    public static void fun2() {
         String s = "20\\\\\\d\\d";
         System.out.println("20\\42".matches(s));
         String re1 = "abc";
