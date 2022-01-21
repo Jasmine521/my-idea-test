@@ -59,7 +59,7 @@ class Counter {
         lock.lock();
         try {
             queue.add(s);
-            condition.signalAll();
+            condition.signalAll();      //唤醒等待中的进程
         } finally {
             lock.unlock();
         }
@@ -69,7 +69,7 @@ class Counter {
         lock.lock();
         try {
             while (queue.isEmpty()) {
-                condition.await();
+                condition.await();      //条件不足进入等待
             }
             return queue.remove();
         } finally {

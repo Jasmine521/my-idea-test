@@ -31,6 +31,7 @@ public class Main {
             sr = new SecureRandom(); // 获取普通的安全随机数生成器
         }
         byte[] buffer = new byte[16];
+
         sr.nextBytes(buffer); // 用安全随机数填充buffer
         System.out.println(Arrays.toString(buffer));
         int[] ints = new int[16];
