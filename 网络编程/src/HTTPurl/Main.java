@@ -5,10 +5,7 @@ import sun.net.www.http.HttpClient;
 
 import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
@@ -47,7 +44,7 @@ public class Main {
         conn.setRequestProperty("User-Agent", "Mozilla/5.0 (compatible: MSIE 11; Windows NT 5.1)");
 
         conn.connect();
-
+        System.out.println("Running...");
         if (conn.getResponseCode() != 200) {
             throw new RuntimeException("bad response");
         }
@@ -58,13 +55,23 @@ public class Main {
         }
         InputStream input = conn.getInputStream();
         Reader reader = new InputStreamReader(input);
-        int n = 0;
+        int n = 0, cnt = 0;
         StringBuffer stringBuffer = new StringBuffer();
         char[] chars = new char[1000];
+
         while ((n = reader.read(chars, 0, 1000)) != -1) {
             stringBuffer.append(chars, 0, n);
+            System.out.println("receive chars : " + n);
+            cnt += n;
         }
-        System.out.println(stringBuffer.toString());
+        OutputStream outputStream = new FileOutputStream("C:\\Users\\smec\\IdeaProjects\\my-test\\网络编程\\src\\HTTPurl\\sina.txt");
+        try (Writer writer = new OutputStreamWriter(outputStream,StandardCharsets.UTF_8)) {
+            writer.write(stringBuffer.toString());
+            writer.write("hello");
+        }
+        System.out.println("Total receive chars : "+cnt);
+        System.out.println("End...");
+//        System.out.println(stringBuffer.toString());
     }
 
 //    static void httpGet(String url) throws Exception {
