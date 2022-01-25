@@ -2,6 +2,7 @@ package com.smec;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.InputStream;
 
 import org.w3c.dom.Document;
@@ -18,7 +19,7 @@ public class Main {
         printNode((Node) doc, 0);
     }
 
-    static void printNode(Node n, int indent) {
+    static void printNode(Node n, int indent) throws ParserConfigurationException {
         for (int i = 0; i < indent; i++) {
             System.out.println(' ');
         }
@@ -27,7 +28,7 @@ public class Main {
                 System.out.println("Document: " + n.getNodeName());
                 break;
             case Node.ELEMENT_NODE:
-                System.out.println("Element: " + n.getNodeName()+" Attr: ");
+                System.out.println("Element: " + n.getNodeName() + " Attr: ");
                 break;
             case Node.TEXT_NODE:
                 System.out.println("Text: " + n.getNodeName() + " = " + n.getNodeValue());
@@ -41,14 +42,16 @@ public class Main {
             default:
                 System.out.println("NodeType: " + n.getNodeType() + ", NodeName: " + n.getNodeName());
         }
-        for(Node child = (Node) n.getFirstChild(); child!=null; child= (Node) child.getNextSibling()){
-            if(child.hasAttributes()){
+//        DocumentBuilder x = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+//        Document y = x.parse(Main.class.getResourceAsStream("file"));
+        for (Node child = (Node) n.getFirstChild(); child != null; child = (Node) child.getNextSibling()) {
+            if (child.hasAttributes()) {
                 NamedNodeMap as = child.getAttributes();
                 for (int i = 0; i < as.getLength(); i++) {
                     printNode(as.item(i), indent + 1);
                 }
             }
-            printNode(child,indent+1);
+            printNode(child, indent + 1);
         }
     }
 }
