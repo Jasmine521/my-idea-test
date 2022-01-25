@@ -1,4 +1,4 @@
-package com.smec;
+package com.dom;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
