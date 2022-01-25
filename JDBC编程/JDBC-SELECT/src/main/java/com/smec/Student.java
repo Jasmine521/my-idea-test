@@ -9,6 +9,16 @@ public class Student {
     private int grade;
     private int score;
 
+    public Student(String name, boolean gender, int grade, int score) {
+        this.name = name;
+        this.gender = gender;
+        this.grade = grade;
+        this.score = score;
+    }
+
+    public Student() {
+
+    }
 
     public long getId() {
         return id;
