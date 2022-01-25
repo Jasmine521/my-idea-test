@@ -1,5 +1,9 @@
 package com.smec;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +18,35 @@ public class Main {
         //   System.out.println("DELETE "+deleteStudents()+" student.");
         //  insertStudents("七海大鲨鱼",false,3,97);
         //  insertStudentsBatch();
-        List<Student> students = queryStudents(3);
+        config.setJdbcUrl(jdbcUrl);
+        config.setUsername("learn");
+        config.setPassword("learnpassword");
+        config.addDataSourceProperty("connectionTimeout","1000");
+        config.addDataSourceProperty("idleTimeout","60000");
+        config.addDataSourceProperty("maximumPoolSize","10");
+        ds = new HikariDataSource(config);
+        List<Student> students = queryStudentsDataSource(3);
         students.forEach(System.out::println);
 
 
     }
+    static List<Student> queryStudentsDataSource(int w) throws SQLException {
+        List<Student> students = new ArrayList<>();
+        try (Connection conn = ds.getConnection()) {
+            try (PreparedStatement ps = conn
+                    .prepareStatement("SELECT * FROM students WHERE grade = ? AND score >= ?")) {
+                ps.setInt(1, w);
+                ps.setInt(2, 60);
+                try (ResultSet rs = ps.executeQuery()) {
+                    while (rs.next()) {
+                        students.add(extractRow(rs));
+                    }
+                }
+            }
+        }
+        return students;
 
+    }
     static void insertStudentsBatch() throws SQLException {
         try (Connection conn = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword)) {
             try (PreparedStatement ps = conn.prepareStatement("INSERT students (name,gender,grade,score) VALUES (?,?,?,?)")) {
@@ -152,4 +179,6 @@ public class Main {
     static final String jdbcUrl = "jdbc:mysql://localhost/learnjdbc?useSSL=false&characterEncoding=utf8";
     static final String jdbcUsername = "learn";
     static final String jdbcPassword = "learnpassword";
+    static HikariConfig config = new HikariConfig();
+    static DataSource ds = new HikariDataSource();
 }
