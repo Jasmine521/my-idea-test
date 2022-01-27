@@ -21,6 +21,7 @@ public class Main {
         Arrays.sort(tests.toArray(x), Test::cmp);
         for (Test z : x)
             System.out.print(z + ", ");
+        
     }
 
     static int cmp(String s1, String s2) {

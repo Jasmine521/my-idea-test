@@ -7,10 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        fun8();
+        fun7();
     }
 
     /**
@@ -40,6 +41,9 @@ public class Main {
         String s = "The     quick\t\t brown   fox  jumps   over the  lazy dog.";
         String r = s.replaceAll("\\s+", " ");
         System.out.println(r); // "The quick brown fox jumps over the lazy dog."
+        Pattern p = Pattern.compile("\\s+");
+        Stream<String> s1 = p.splitAsStream("The quick brown fox jumps over the lazy dog");
+        s1.forEach(System.out::println);
     }
 
     public static void fun6() {
