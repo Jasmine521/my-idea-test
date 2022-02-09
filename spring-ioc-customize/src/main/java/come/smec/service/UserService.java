@@ -42,6 +42,7 @@ public class UserService {
         return this.users.stream().filter(user -> user.getId() == id).findFirst();
     }
 
+    @MetricTime("register")
     public User register(String email, String password, String name) {
         validators.validate(email, password, name);
         users.forEach((user -> {
